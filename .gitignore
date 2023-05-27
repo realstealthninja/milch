@@ -4,3 +4,6 @@ cmake-build-release/
 
 # IDE
 .idea/
+
+# Devlopment stuff
+test/
