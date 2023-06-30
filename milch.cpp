@@ -20,6 +20,7 @@ namespace milch {
     window::window(unsigned int width, unsigned int height) {
         this->width = width;
         this->height = height;
+        this->title = "my window";
         this->win = XCreateWindow(this->display,
                                   DefaultRootWindow(this->display),
                                   0, 0, // Int x, y
@@ -50,6 +51,4 @@ namespace milch {
         XCloseDisplay(this->display);
 
     }
-
-
 } // namespace milch
