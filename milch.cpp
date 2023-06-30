@@ -3,7 +3,7 @@
  * @brief Header file containing all functions needed for milch
  *
  * @details
- * This is the main header of milch, And as such contains all functions
+ * This is the main source of milch, And as such contains definitions to all functions
  * related to and needed by milch
  * @copyright This project is licensed under the MIT license
  * @author [stealthninja](https://github.com/realstealthninja)
@@ -29,8 +29,13 @@ namespace milch {
                                   CopyFromParent,
                                   CopyFromParent,
                                   0,
-                                  0
+                                  nullptr
         );
+        XStoreName(this->display, this->win, "my window");
+    }
+
+    window::window(unsigned int width, unsigned int height, const std::string& title): window(width, height) {
+        XStoreName(this->display, this->win, title.c_str());
     }
 
     void window::show_window() const {
@@ -45,4 +50,6 @@ namespace milch {
         XCloseDisplay(this->display);
 
     }
+
+
 } // namespace milch
