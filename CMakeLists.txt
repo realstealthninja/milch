@@ -4,10 +4,13 @@ include(GNUInstallDirs)
 set(CMAKE_CXX_STANDARD 20)
 
 add_library(${PROJECT_NAME} SHARED milch.cpp milch.h)
+add_executable(${PROJECT_NAME}_test EXCLUDE_FROM_ALL examples/simple_window.cpp)
+target_link_libraries(${PROJECT_NAME}_test milch)
 target_link_libraries(${PROJECT_NAME} "-lX11")
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER milch.h)
+
 
 install(TARGETS ${PROJECT_NAME}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
