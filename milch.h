@@ -1,5 +1,5 @@
 /**
- * @file
+ * @file milch.h
  * @brief Header file containing all functions needed for milch
  * @details
  * This is the main header of milch, And as such contains all functions
@@ -11,7 +11,8 @@
 #ifndef MILCH_LIBRARY_H
 #define MILCH_LIBRARY_H
 
-#include <X11/Xlib.h> // For XLib functions
+#include <X11/Xlib.h> /// For XLib functions
+#include <string> /// for std::string
 
 /**
  * @brief namespace containing all functions of milch
@@ -32,13 +33,19 @@ namespace milch {
         /**
          * @brief window constructor creates a window using XLib
          *
-         * @param width
-         * @param height
+         * @param width of the window
+         * @param height of the window
          */
-        window(
-                unsigned int width,
-                unsigned int height);
-
+        window(unsigned int width, unsigned int height);
+        /**
+         * @brief A more expansive constructor for easier development
+         * @param width of the window
+         * @param height of the window
+         * @param title of the window
+         */
+        window(unsigned int width,
+               unsigned int height,
+               const std::string& title);
         /**
          *  @brief Makes the window visible
          *  @returns void
