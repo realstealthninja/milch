@@ -20,12 +20,14 @@
  */
 namespace milch {
     /**
-     * @brief window class contains functions relating to windows
+     * @brief class contains functions relating to windows
+     * @class window
      */
     class window {
     public:
         unsigned int width; /// window width
         unsigned int height; /// window height
+        std::string title; /// window's title
 
         Display *display = XOpenDisplay(nullptr); /// display struct from XLib
         Window win{}; /// window struct from XLib
@@ -37,6 +39,7 @@ namespace milch {
          * @param height of the window
          */
         window(unsigned int width, unsigned int height);
+
         /**
          * @brief A more expansive constructor for easier development
          * @param width of the window
@@ -46,6 +49,7 @@ namespace milch {
         window(unsigned int width,
                unsigned int height,
                const std::string& title);
+
         /**
          *  @brief Makes the window visible
          *  @returns void
