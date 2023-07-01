@@ -51,10 +51,17 @@ namespace milch {
                const std::string& title);
 
         /**
-         *  @brief Makes the window visible
-         *  @returns void
+         * @brief Makes the window visible
+         * @returns void
          */
         void show_window() const;
+
+        /**
+         * @brief Set the background colour of the window
+         * @param hex_color color of the background in hex
+         * @returns void
+         */
+        void set_background_color(std::string hex_color) const;
 
         /**
          * @brief window deconstruction
@@ -63,6 +70,7 @@ namespace milch {
          */
         ~window();
     };
+
 } // namespace milch
 
 #endif //MILCH_LIBRARY_H

@@ -23,10 +23,10 @@ namespace milch {
         this->title = "my window";
         this->win = XCreateWindow(this->display,
                                   DefaultRootWindow(this->display),
-                                  0, 0, // Int x, y
+                                  0, 0,
                                   width, height,
-                                  0, // border width
-                                  CopyFromParent, // depth
+                                  0,
+                                  CopyFromParent,
                                   CopyFromParent,
                                   CopyFromParent,
                                   0,
@@ -49,6 +49,10 @@ namespace milch {
         if (!this->win) return;
         XDestroyWindow(this->display, this->win);
         XCloseDisplay(this->display);
+
+    }
+
+    void window::set_background_color(std::string hex_color) const {
 
     }
 } // namespace milch
