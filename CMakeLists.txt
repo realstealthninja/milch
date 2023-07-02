@@ -3,7 +3,11 @@ project(milch VERSION 1.0.1 DESCRIPTION "a simple gui lib for c++")
 include(GNUInstallDirs)
 set(CMAKE_CXX_STANDARD 20)
 
-add_library(${PROJECT_NAME} SHARED src/milch.cpp src/milch.h)
+add_library(${PROJECT_NAME} SHARED
+        src/milch.cpp
+        src/milch.h
+        src/color.cpp
+        src/color.hpp)
 add_executable(${PROJECT_NAME}_test EXCLUDE_FROM_ALL examples/simple_window.cpp)
 target_link_libraries(${PROJECT_NAME}_test milch)
 target_link_libraries(${PROJECT_NAME} "-lX11")
