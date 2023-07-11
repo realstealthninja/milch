@@ -27,6 +27,7 @@ namespace milch {
         color(unsigned int r, unsigned int g, unsigned int b): red(r), green(g), blue(b){};
         explicit color(std::string hexadecimal): hexCode(std::move(hexadecimal)){};
         std::string to_hexadecimal();
+        [[nodiscard]] unsigned long to_xlib_color() const;
     };
 
 } // milch

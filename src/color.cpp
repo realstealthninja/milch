@@ -18,4 +18,8 @@ namespace milch {
         hexCode = string_stream.str();
         return hexCode;
     }
+
+    unsigned long color::to_xlib_color() const {
+        return this->blue + (this->green << 8) + (this->red << 16);
+    }
 } // milch
