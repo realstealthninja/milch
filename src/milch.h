@@ -8,12 +8,12 @@
  * @copyright This project is licensed under the MIT license
  * @author [stealthninja](https://github.com/realstealthninja)
  */
-#ifndef MILCH_LIBRARY_H
-#define MILCH_LIBRARY_H
+#ifndef MILCH_MILCH_H
+#define MILCH_MILCH_H
 
 #include <X11/Xlib.h> /// For XLib functions
 #include <string> /// for std::string
-
+#include "color.hpp"
 /**
  * @brief namespace containing all functions of milch
  * @namespace milch
@@ -61,7 +61,7 @@ namespace milch {
          * @param hex_color color of the background in hex
          * @returns void
          */
-        void set_background_color(std::string hex_color) const;
+        void set_background_color(const color& color) const;
 
         /**
          * @brief window deconstruction
@@ -73,4 +73,4 @@ namespace milch {
 
 } // namespace milch
 
-#endif //MILCH_LIBRARY_H
+#endif //MILCH_MILCH_H

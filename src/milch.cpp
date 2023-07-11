@@ -52,7 +52,7 @@ namespace milch {
 
     }
 
-    void window::set_background_color(std::string hex_color) const {
-
+    void window::set_background_color(const color& color) const {
+        XSetBackground(this->display, reinterpret_cast<GC>(this->win), color.to_xlib_color());
     }
 } // namespace milch
