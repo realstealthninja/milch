@@ -21,6 +21,7 @@
  * @namespace milch
  */
 namespace milch {
+
     /**
      * @brief class contains functions relating to windows
      * @class window
