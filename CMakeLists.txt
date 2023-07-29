@@ -15,7 +15,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE include)
 target_include_directories(${PROJECT_NAME}  PRIVATE src)
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
-set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER src/milch.h)
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER include/milch/milch.h)
 
 
 install(TARGETS ${PROJECT_NAME}
