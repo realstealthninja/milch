@@ -13,7 +13,9 @@
 
 #include <X11/Xlib.h> /// For XLib functions
 #include <string> /// for std::string
-#include "color.hpp"
+#include <iostream> /// for I/O operations
+#include "color.hpp" /// for color
+
 /**
  * @brief namespace containing all functions of milch
  * @namespace milch
