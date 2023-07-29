@@ -2,7 +2,7 @@
  * @file simple_window.cpp
  * @brief A simple window using milch!
  * @details
- * This file contains a simple window made using libmilch
+ * This file contains a simple window made using lib milch
  * hopefully this shows you the potential of using milch
  *
  * @copyright This project is licensed under the MIT license
@@ -10,9 +10,9 @@
  */
 
 #include <unistd.h> /// for sleep
-#include <milch.h> /// for window and show_window function
+#include <milch/milch.h> /// for window and show_window function
 
-using namespace milch;
+using milch::window;
 
 /**
  * @brief Main function
@@ -21,6 +21,8 @@ using namespace milch;
 int main() {
     window win(400,200, "my window");
     win.show_window();
-    sleep(200); // waiting long enough to see window
+    sleep(2);
+    win.set_background_color(milch::color(255,192,192));
+    sleep(5); // waiting long enough to see window
     return 0;
 }
