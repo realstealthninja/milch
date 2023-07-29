@@ -11,6 +11,8 @@ add_library(${PROJECT_NAME} SHARED
 add_executable(${PROJECT_NAME}_test EXCLUDE_FROM_ALL examples/simple_window.cpp)
 target_link_libraries(${PROJECT_NAME}_test milch)
 target_link_libraries(${PROJECT_NAME} "-lX11")
+target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_include_directories(${PROJECT_NAME}  PRIVATE src)
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER src/milch.h)
