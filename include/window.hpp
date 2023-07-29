@@ -88,4 +88,4 @@ namespace milch {
 
 } // namespace milch
 
-#endif //MILCH_MILCH_H
+#endif //MILCH_WINDOW_HPP
