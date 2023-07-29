@@ -52,7 +52,7 @@ namespace milch {
          */
         window(unsigned int width,
                unsigned int height,
-               const std::string& title);
+               const std::string &title);
 
         /**
          * @brief Makes the window visible
