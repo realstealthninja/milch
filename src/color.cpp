@@ -6,7 +6,7 @@
  * @author [stealthninja](https://github.com/stealthninja)
  */
 
-#include "color.hpp"
+#include "color.hpp" /// for defining functions in color.hpp
 
 namespace milch {
     std::string color::to_hexadecimal() {
@@ -14,12 +14,16 @@ namespace milch {
             return hexCode;
         }
         std::stringstream string_stream;
-        string_stream << std::hex << red << std::hex << green << std::hex << blue;
+        string_stream << "#" << std::hex << this->red << std::hex << this->blue << this->green;
         hexCode = string_stream.str();
         return hexCode;
     }
 
-    unsigned long color::to_xlib_color() const {
-        return this->blue + (this->green << 8) + (this->red << 16);
+    XColor color::to_xlib_color() const {
+        XColor clr;
+        clr.blue = 257*this->blue;
+        clr.red = 257*this->red;
+        clr.green= 257*this->green;
+        return clr;
     }
-} // milch
+} // namespace milch
