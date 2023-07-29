@@ -8,8 +8,8 @@
  * @copyright This project is licensed under the MIT license
  * @author [stealthninja](https://github.com/realstealthninja)
  */
-#ifndef MILCH_MILCH_H
-#define MILCH_MILCH_H
+#ifndef MILCH_WINDOW_HPP
+#define MILCH_WINDOW_HPP
 
 #include <X11/Xlib.h> /// For XLib functions
 #include <string> /// for std::string
