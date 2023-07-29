@@ -28,9 +28,9 @@ namespace milch {
      */
     class window {
     public:
-        unsigned int width; /// window width
-        unsigned int height; /// window height
-        std::string title; /// window's title
+        unsigned int width; ///< window width
+        unsigned int height; ///< window height
+        std::string title; ///< window's title
 
         Display *display = XOpenDisplay(nullptr); /// display struct from XLib
         Window win{}; /// window struct from XLib
