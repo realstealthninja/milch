@@ -1,6 +1,17 @@
 # Generated from CLion Inspection settings
 ---
 Checks: '-*,
+google-*,
+clang-analyzer-*,
+-clang-analyzer-security.insecureAPI.*,
+cppcoreguidelines-*,
+-cppcoreguidelines-avoid-magic-numbers,
+-cppcoreguidelines-pro-bounds-*,
+openmp-*,
+performance-*,
+portability-*,
+modernize-*,
+-modernize-use-trailing-*
 bugprone-argument-comment,
 bugprone-assert-side-effect,
 bugprone-bad-signal-to-kill-thread,
@@ -129,6 +140,7 @@ readability-convert-member-functions-to-static,
 readability-delete-null-pointer,
 readability-deleted-default,
 readability-inconsistent-declaration-parameter-name,
+readability-identifier-naming,
 readability-make-member-function-const,
 readability-misleading-indentation,
 readability-misplaced-array-index,
@@ -145,3 +157,24 @@ readability-static-definition-in-anonymous-namespace,
 readability-string-compare,
 readability-uniqueptr-delete-release,
 readability-use-anyofallof'
+WarningsAsErrors: '*,
+-google-readability-*,
+-google-explicit-constructor,
+-modernize-*,
+modernize-avoid-c-arrays,
+-performance-move-const-arg,
+-performance-noexcept-move-constructor,
+-performance-unnecessary-value-param,
+-cppcoreguidelines-init-variables,
+-cppcoreguidelines-pro-*,
+-cppcoreguidelines-owning-memory,
+-clang-analyzer-cplusplus.Move'
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle: google
+CheckOptions: [
+  {
+    key: readability-identifier-naming.FunctionCase,
+    value: lower_case
+  }
+]
