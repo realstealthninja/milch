@@ -65,7 +65,18 @@ namespace milch {
          * @param hex_color color of the background in hex
          * @returns void
          */
-        void set_background_color(const color& color) const;
+        void set_background_color(const milch::color& color) const;
+
+        /**
+         * @brief Internal Error handler
+         * @param d display causing the error
+         * @param error XErrorEvent of the error
+         * @return 0 if the error handling was successful
+         */
+        static int error_handler(Display* d,XErrorEvent* error) {
+            std::cerr << "ERROR: "<< error->error_code << "\n";
+            return 0;
+        }
 
         /**
          * @brief window deconstruction
