@@ -9,7 +9,7 @@
  * @author [stealthninja](https://github.com/realstealthninja)
  */
 
-#include "window.hpp" /// For milch::function
+#include "window.hpp"  /// For milch::function
 #include <X11/Xlib.h> /// for XLib functions
 
 /**

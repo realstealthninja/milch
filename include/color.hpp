@@ -9,7 +9,7 @@
 #ifndef MILCH_COLOR_HPP
 #define MILCH_COLOR_HPP
 
-#include <string> /// For std::string
+#include <string>  /// For std::string
 #include <cstring> /// For Cstring
 #include <sstream> /// For ssstream
 #include <cstdint> /// For uint64_t
