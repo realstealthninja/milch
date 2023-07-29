@@ -32,8 +32,9 @@ namespace milch {
         unsigned int height; ///< window height
         std::string title; ///< window's title
 
-        Display *display = XOpenDisplay(nullptr); /// display struct from XLib
-        Window win{}; /// window struct from XLib
+        Display *display = XOpenDisplay(nullptr); ///< display struct from XLib
+        GC gc{}; ///< Graphics context of window / display
+        Window win {}; ///< window struct from XLib
 
         /**
          * @brief window constructor creates a window using XLib
