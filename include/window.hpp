@@ -91,8 +91,9 @@ namespace milch {
          * @param error XErrorEvent of the error
          * @return 0 and exit the program if an erorr occurs
          */
-        static int error_handler(Display* d,XErrorEvent* error) {
+        static int error_handler(Display* d, XErrorEvent* error) {
             std::cerr << "ERROR: "<< error->error_code << "\n";
+            std::cerr.flush();
             return 0;
         }
 
