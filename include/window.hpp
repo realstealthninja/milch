@@ -28,8 +28,8 @@ namespace milch {
      */
     class window {
     public:
-        unsigned int width; ///< window width
-        unsigned int height; ///< window height
+        unsigned int width{}; ///< window width
+        unsigned int height{}; ///< window height
         std::string title; ///< window's title
 
         Display *display = XOpenDisplay(nullptr); ///< display struct from XLib
