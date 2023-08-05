@@ -51,7 +51,19 @@ namespace milch {
          */
         window(unsigned int width,
                unsigned int height,
-               const std::string &title);
+               const std::string &title,
+               const milch::color &background_color = milch::color(255,255,255),
+               const milch::color &foreground_color = milch::color(1,1,1));
+
+        /**
+         * @brief copy constructor of window
+         */
+        window(window &w);
+
+        /**
+         * @brief move constructor of window
+         */
+        window(window&& w) = default;
 
         /**
          * @brief Makes the window visible
