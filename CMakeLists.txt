@@ -7,7 +7,7 @@ add_library(${PROJECT_NAME} SHARED
         src/window.cpp
         include/window.hpp
         src/color.cpp
-        include/color.hpp)
+        include/color.hpp include/error.hpp)
 add_executable(${PROJECT_NAME}_test EXCLUDE_FROM_ALL examples/simple_window.cpp)
 target_link_libraries(${PROJECT_NAME}_test milch)
 target_link_libraries(${PROJECT_NAME} "-lX11")
