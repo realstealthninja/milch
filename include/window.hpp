@@ -89,7 +89,7 @@ namespace milch {
          * @brief Internal Error handler
          * @param d display causing the error
          * @param error XErrorEvent of the error
-         * @return 0 if the error handling was successful
+         * @return 0 and exit the program if an erorr occurs
          */
         static int error_handler(Display* d,XErrorEvent* error) {
             std::cerr << "ERROR: "<< error->error_code << "\n";
