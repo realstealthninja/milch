@@ -97,6 +97,27 @@ namespace milch {
             return 0;
         }
 
+        // Drawing and things of that nature
+
+        // end of drawing section
+
+        /**
+         * @breif conversion of window to display
+         * @return XLib Display*
+         */
+        explicit operator Display*() const;
+
+        /**
+         * @breif conversion of window to Window
+         * @return XLib Window
+         */
+        explicit operator Window() const;
+
+        /**
+         * @breif conversion of window to graphics context
+         * @return XLib Graphics context
+         */
+        explicit operator GC() const;
         /**
          * @brief window deconstruction
          * @details
