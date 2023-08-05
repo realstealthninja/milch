@@ -37,15 +37,14 @@ namespace milch {
         Window win {}; ///< window struct from XLib
 
         /**
-         * @brief window constructor creates a window using XLib
-         *
+         * @brief base window constructor creates a window using XLib
          * @param width of the window
          * @param height of the window
          */
         window(unsigned int width, unsigned int height);
 
         /**
-         * @brief A more expansive constructor for easier development
+         * @brief A simple constructor for easier development
          * @param width of the window
          * @param height of the window
          * @param title of the window
