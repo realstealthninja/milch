@@ -37,7 +37,13 @@ namespace milch {
         set_background_color(milch::color(255,255,225));
         XSetErrorHandler(error_handler);
     }
-    window::window(unsigned int width, unsigned int height, const std::string& title): window(width, height) {
+    window::window(unsigned int width,
+                   unsigned int height,
+                   const std::string& title,
+                   const milch::color &background_color,
+                   const milch::color &foreground_color): window(width, height) {
+        set_background_color(background_color);
+        set_foreground_color(foreground_color);
         XStoreName(this->display, this->win, title.c_str());
     }
 
