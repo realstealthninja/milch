@@ -79,6 +79,13 @@ namespace milch {
         void set_background_color(const milch::color& color) const;
 
         /**
+         * @brief Set the background colour of the window
+         * @param hex_color color of the background in hex
+         * @returns void
+         */
+        void set_foreground_color(const milch::color& color) const;
+
+        /**
          * @brief Internal Error handler
          * @param d display causing the error
          * @param error XErrorEvent of the error
