@@ -69,4 +69,34 @@ namespace milch {
         XClearWindow(this->display, this->win);
         XFlush(this->display);
     }
+
+    void window::set_foreground_color(const color &color) const {
+        Colormap map = XDefaultColormap(this->display, 0);
+        XColor clr = color.to_xlib_color();
+        XAllocColor(this->display, map, &clr);
+        XSetForeground(this->display, this->gc, clr.pixel);
+        XClearWindow(this->display, this->win);
+        XFlush(this->display);
+    }
+
+    window::operator Window() const {
+        return this->win;
+    }
+
+    window::operator GC() const {
+        return this->gc;
+    }
+
+    window::operator Display*() const {
+        return this->display;
+    }
+
+    window::window(window &w) {
+        w.width = this->width;
+        w.height = this->height;
+        w.display = this->display;
+        w.win = this->win;
+        w.gc = this->gc;
+        w.title = this->title;
+    }
 } // namespace milch
