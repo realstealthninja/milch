@@ -12,9 +12,10 @@
 #define MILCH_WINDOW_HPP
 
 #include <X11/Xlib.h> /// For XLib functions
-#include <string> /// for std::string
-#include <iostream> /// for I/O operations
-#include "color.hpp"  /// for color
+#include <string> /// For std::string
+#include <iostream> /// For I/O operations
+#include "color.hpp"  /// For color
+#include "shapes.hpp" /// For shapes::point
 
 /**
  * @brief namespace containing all functions of milch
