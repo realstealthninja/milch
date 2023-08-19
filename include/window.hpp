@@ -92,21 +92,23 @@ namespace milch {
          * @param error XErrorEvent of the error
          * @return 0 and exit the program if an erorr occurs
          */
-        static int error_handler(Display* d, XErrorEvent* error) {
-            std::cerr << "ERROR: "<< error->error_code << "\n";
+        static int error_handler(Display *d, XErrorEvent *error) {
+            std::cerr << "ERROR: " << error->error_code << "\n";
             std::cerr.flush();
             return 0;
         }
 
-        // Drawing and things of that nature
+        // Drawing section
+        void draw_line(shapes::point a, shapes::point b, int width_of_line = 1) const;
 
+        void draw_rectangle(shapes::point a, shapes::point b, int width_of_line = 1) const;
         // end of drawing section
 
         /**
          * @breif conversion of window to display
          * @return XLib Display*
          */
-        explicit operator Display*() const;
+        explicit operator Display *() const;
 
         /**
          * @breif conversion of window to Window
