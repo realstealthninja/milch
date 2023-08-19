@@ -99,4 +99,20 @@ namespace milch {
         w.gc = this->gc;
         w.title = this->title;
     }
+
+    void window::draw_line(shapes::point a, shapes::point b, int width_of_line) const {
+        XGCValues values;
+        values.line_width = width_of_line;
+        XChangeGC(this->display, this->gc, GCLineWidth, &values);
+        XDrawLine(this->display, this->win, this->gc, a.x + width_of_line, a.y + width_of_line, b.x + width_of_line,
+                  b.y + width_of_line);
+        XFlush(this->display);
+    }
+
+    void window::draw_rectangle(shapes::point a, shapes::point b, int width_of_line) const {
+        draw_line(a, shapes::point(a.x, b.y), width_of_line);
+        draw_line(b, shapes::point(b.x, a.y), width_of_line);
+        draw_line(a, shapes::point(b.x, a.y), width_of_line);
+        draw_line(shapes::point(a.x, b.y), b, width_of_line);
+    }
 } // namespace milch
