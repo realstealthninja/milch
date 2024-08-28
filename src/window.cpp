@@ -9,18 +9,21 @@
  * @author [stealthninja](https://github.com/realstealthninja)
  */
 
-#include "window.hpp"  /// For milch::function
+
 #include <X11/Xlib.h> /// for XLib functions
+#include "window.hpp"  /// For milch::function
+#include "color.hpp"
+#include "shapes.hpp"
 
 /**
  * @brief namespace containing all functions of milch
  * @namespace milch
  */
 namespace milch {
-    window::window(unsigned int width, unsigned int height):
+    Window::Window(size_t width, size_t height):
             width(width),
             height(height),
-            title("my window"),
+            title("my Window"),
             win(XCreateWindow(
                     this->display,
                     DefaultRootWindow(this->display),
@@ -33,27 +36,31 @@ namespace milch {
                     0, nullptr
             )) {
         this->gc = XCreateGC(this->display, this->win, 0, nullptr);
-        XStoreName(this->display, this->win, "my window");
+        this->color_map = XDefaultColormap(this->display, 0);
+
+        XStoreName(this->display, this->win, "my Window");
         set_background_color(milch::color(255,255,225));
         XSetErrorHandler(error_handler);
     }
-    window::window(unsigned int width,
-                   unsigned int height,
+    Window::Window(size_t width,
+                   size_t height,
                    const std::string& title,
                    const milch::color &background_color,
-                   const milch::color &foreground_color): window(width, height) {
+                   const milch::color &foreground_color): Window(width, height) {
         set_background_color(background_color);
         set_foreground_color(foreground_color);
         XStoreName(this->display, this->win, title.c_str());
+
+
     }
 
-    void window::show_window() const {
+    void Window::show_window() const {
         if (!this->win) return;
         XMapWindow(this->display, this->win);
         XFlush(this->display);
     }
 
-    window::~window() {
+    Window::~Window() {
         if (!this->win) return;
         XFreeGC(this->display, this->gc);
         XDestroyWindow(this->display, this->win);
@@ -61,19 +68,19 @@ namespace milch {
 
     }
 
-    void window::set_background_color(const milch::color& color) const {
-        Colormap map = XDefaultColormap(this->display, 0);
+    void Window::set_background_color(const milch::color& color) const {
         XColor clr = color.to_xlib_color();
-        XAllocColor(this->display, map, &clr);
+
+        XAllocColor(this->display, this->color_map, &clr);
         XSetWindowBackground(this->display, this->win, clr.pixel);
         XClearWindow(this->display, this->win);
         XFlush(this->display);
     }
 
-    void window::set_foreground_color(const color &color) const {
-        Colormap map = XDefaultColormap(this->display, 0);
+    void Window::set_foreground_color(const color &color) const {
         XColor clr = color.to_xlib_color();
-        XAllocColor(this->display, map, &clr);
+
+        XAllocColor(this->display, this->color_map, &clr);
         XSetForeground(this->display, this->gc, clr.pixel);
         XClearWindow(this->display, this->win);
         XFlush(this->display);
@@ -92,15 +99,15 @@ namespace milch {
         return this->win;
     }
 
-    window::operator GC() const {
+    Window::operator GC() const {
         return this->gc;
     }
 
-    window::operator Display*() const {
+    Window::operator Display*() const {
         return this->display;
     }
 
-    window::window(window &w) {
+    Window::Window(Window &w) {
         w.width = this->width;
         w.height = this->height;
         w.display = this->display;
@@ -109,7 +116,7 @@ namespace milch {
         w.title = this->title;
     }
 
-    void window::draw_line(shapes::point a, shapes::point b, int width_of_line) const {
+    void Window::draw_line(shapes::point a, shapes::point b, int width_of_line) const {
         XGCValues values;
         values.line_width = width_of_line;
         XChangeGC(this->display, this->gc, GCLineWidth, &values);
