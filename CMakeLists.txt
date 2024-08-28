@@ -24,3 +24,9 @@ install(TARGETS ${PROJECT_NAME}
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
 
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
+
+option(MILCH_BUILD_EXAMPLES "Build milch examples." OFF)
+
+if(MILCH_BUILD_EXAMPLES)
+        add_subdirectory(examples/)
+endif()
