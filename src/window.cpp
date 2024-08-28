@@ -79,7 +79,16 @@ namespace milch {
         XFlush(this->display);
     }
 
-    window::operator Window() const {
+    shapes::point Window::get_mouse_position() {
+        int x, y, root_x, root_y = 0;
+        uint32_t mask = 0;
+        XWindow root_win, child_win;
+
+        XQueryPointer(this->display, this->win, &root_win, &child_win, &root_x, &root_y, &x, &y, &mask);
+        return shapes::point(x, y);
+    }
+
+    Window::operator XWindow() const {
         return this->win;
     }
 

@@ -104,6 +104,8 @@ namespace milch {
         void draw_rectangle(shapes::point a, shapes::point b, int width_of_line = 1, bool fill = false) const;
         // end of drawing section
 
+        shapes::point get_mouse_position();
+
         /**
          * @breif conversion of window to display
          * @return XLib Display*
