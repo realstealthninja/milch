@@ -6,6 +6,10 @@
  * @author [stealthninja](https://github.com/stealthninja)
  */
 
+#ifndef MILCH_SHAPES_HPP
+#define MILCH_SHAPES_HPP
+
+#include <X11/Xlib.h>
 namespace milch::shapes {
         class point {
         public:
@@ -16,4 +20,6 @@ namespace milch::shapes {
                 return {static_cast<short>(this->x), static_cast<short>(this->y)};
             }
         };
-    }
+} // namespace milch::shapes
+
+#endif // MILCH_SHAPES_HPP
