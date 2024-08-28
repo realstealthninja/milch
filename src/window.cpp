@@ -109,10 +109,18 @@ namespace milch {
         XFlush(this->display);
     }
 
-    void window::draw_rectangle(shapes::point a, shapes::point b, int width_of_line) const {
-        draw_line(a, shapes::point(a.x, b.y), width_of_line);
-        draw_line(b, shapes::point(b.x, a.y), width_of_line);
-        draw_line(a, shapes::point(b.x, a.y), width_of_line);
-        draw_line(shapes::point(a.x, b.y), b, width_of_line);
+    void Window::draw_rectangle(shapes::point a, shapes::point b, int width_of_line, bool filled) const {
+        XGCValues values;
+        values.line_width = width_of_line;
+        XChangeGC(this->display, this->gc, GCLineWidth, &values);
+        
+
+        if (filled) {
+            XFillRectangle(this->display, this->win, this->gc, a.x, a.y, b.x-a.x, b.y-a.y);
+        } else {
+            XDrawRectangle(this->display, this->win, this->gc, a.x, a.y, b.x-a.x, b.y-a.y);
+        }
+
+        XFlush(this->display);
     }
 } // namespace milch

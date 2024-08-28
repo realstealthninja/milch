@@ -101,7 +101,7 @@ namespace milch {
         // Drawing section
         void draw_line(shapes::point a, shapes::point b, int width_of_line = 1) const;
 
-        void draw_rectangle(shapes::point a, shapes::point b, int width_of_line = 1) const;
+        void draw_rectangle(shapes::point a, shapes::point b, int width_of_line = 1, bool fill = false) const;
         // end of drawing section
 
         /**
