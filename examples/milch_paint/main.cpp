@@ -26,6 +26,7 @@ int main() {
         shapes::point mos_pos = win.get_mouse_position();
 
         win.draw_rectangle(shapes::point(mos_pos.x-1, mos_pos.y-1), shapes::point(mos_pos.x+1, mos_pos.y+1), 1, true);
+        win.draw();
     }
 
 }
