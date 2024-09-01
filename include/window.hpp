@@ -115,6 +115,14 @@ namespace milch {
         void draw_rectangle(shapes::point a, shapes::point b, int width_of_line = 1, bool fill = false) const;
         // end of drawing section
 
+        void draw_circle(shapes::point center, float radius);
+
+        /**
+         * @brief draws everything to the screen
+         * 
+         */
+        void draw();
+
         shapes::point get_mouse_position();
 
         /**
