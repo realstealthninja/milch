@@ -11,8 +11,6 @@
 
 #include <string>  /// For std::string
 #include <cstring> /// For Cstring
-#include <sstream> /// For ssstream
-#include <cstdint> /// For uint64_t
 #include <X11/Xlib.h> /// For XColor
 
 /**
