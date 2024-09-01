@@ -7,6 +7,8 @@
  */
 
 #include "color.hpp" /// for defining functions in color.hpp
+#include <iostream>
+#include <sstream>
 
 namespace milch {
     std::string color::to_hexadecimal() {
