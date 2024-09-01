@@ -11,6 +11,7 @@
 
 
 #include <X11/Xlib.h> /// for XLib functions
+#include <cstdint>
 #include "window.hpp"  /// For milch::function
 #include "color.hpp"
 #include "shapes.hpp"
@@ -74,7 +75,6 @@ namespace milch {
         XAllocColor(this->display, this->color_map, &clr);
         XSetWindowBackground(this->display, this->win, clr.pixel);
         XClearWindow(this->display, this->win);
-        XFlush(this->display);
     }
 
     void Window::set_foreground_color(const color &color) const {
@@ -83,6 +83,9 @@ namespace milch {
         XAllocColor(this->display, this->color_map, &clr);
         XSetForeground(this->display, this->gc, clr.pixel);
         XClearWindow(this->display, this->win);
+    }
+
+    void Window::draw() {
         XFlush(this->display);
     }
 
@@ -122,7 +125,6 @@ namespace milch {
         XChangeGC(this->display, this->gc, GCLineWidth, &values);
         XDrawLine(this->display, this->win, this->gc, a.x + width_of_line, a.y + width_of_line, b.x + width_of_line,
                   b.y + width_of_line);
-        XFlush(this->display);
     }
 
     void Window::draw_rectangle(shapes::point a, shapes::point b, int width_of_line, bool filled) const {
@@ -136,7 +138,5 @@ namespace milch {
         } else {
             XDrawRectangle(this->display, this->win, this->gc, a.x, a.y, b.x-a.x, b.y-a.y);
         }
-
-        XFlush(this->display);
     }
 } // namespace milch
