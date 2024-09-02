@@ -9,8 +9,7 @@
  */
 
 
-#include <unistd.h> /// for sleep
-#include <milch/milch.h> /// for window and show_window function
+#include <milch/milch.hpp> /// for window and show_window function
 
 using namespace milch;
 
